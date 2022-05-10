@@ -1,0 +1,750 @@
+/**********************************/
+/********** General CSS ***********/
+/**********************************/
+body {
+    color: #666666;
+    background-image: url('bg2.png');
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-size: cover;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#spl{
+    margin: 1%;
+}
+a {
+    color: #000000;
+    transition: all .3s;
+}
+
+.iframe{
+    margin-right: 2%;
+}
+.sub_margin{
+    margin-left: 4%;
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: rgb(1, 29, 211);
+    outline: none;
+    text-decoration: none;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+
+/**********************************/
+/****** Layout with Sidebar *******/
+/**********************************/
+.wrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1250px;
+}
+
+.wrapper .sidebar {
+    position: relative;
+    width: 100%;
+    float: left;
+    background: #161616;
+}
+
+.wrapper .content {
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    float: left;
+    background: rgb(246, 209, 85,0);
+}
+
+.wrapper .sidebar-header,
+.wrapper .sidebar-footer {
+    display:none;
+}
+
+.navbar {
+    padding: 15px;
+    background: #000000 !important;
+}
+
+.navbar-expand-md .navbar-nav .nav-item {
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255,0.3);
+}
+
+.navbar-expand-md .navbar-nav .nav-item:first-child{
+    border-top: none;
+}
+
+.navbar-expand-md .navbar-nav .nav-link {
+    color: #ffffff;
+    padding: 5px 15px 7px 15px;
+    transition: all .3s;
+}
+
+.navbar-expand-md .navbar-nav .nav-link i {
+    color: rgb(92, 112, 245);
+    float: right;
+    padding-top: 5px;
+    transition: all .3s;
+}
+
+.navbar-expand-md .navbar-nav .nav-link:hover,
+.navbar-expand-md .navbar-nav .nav-link.active {
+    color: rgb(92, 112, 245);
+}
+
+.navbar-expand-md .navbar-nav .nav-link:hover i,
+.navbar-expand-md .navbar-nav .nav-link.active i{
+    color: #ffffff;
+}
+
+
+.wrapper .sidebar,
+.wrapper .content {
+    -webkit-transition: margin 200ms ease-out;
+    -moz-transition: margin 200ms ease-out;
+    -o-transition: margin 200ms ease-out;
+    transition: margin 200ms ease-out;
+}
+
+@media (min-width: 768px) {
+    .wrapper .content {
+        padding: 30px 0px 30px 30px;
+    }
+    
+    .wrapper .content::before,
+    .wrapper .content::after {
+        position: fixed;
+        content: "";
+        width: 100%;
+        height: 30px;
+        background: rgb(92, 174, 245);
+        z-index: 1;
+    }
+    
+    .wrapper .content::before {
+        top: 0;
+    }
+
+    .wrapper .content::after {
+        bottom: 0;
+    }
+    
+    .wrapper .sidebar {
+        position: fixed;
+        width: 300px;
+        height: 100%;
+        margin-left: -250px;
+        float: left;
+        overflow: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgb(248, 248, 248);
+        z-index: 2;
+    }
+
+    .wrapper .sidebar:hover {
+        margin-left: 0px;
+    }
+    
+    .wrapper .content {
+        position: relative;
+        width: calc(100% - 50px);
+        margin-left: 50px;
+        float: right;
+    }
+    
+    .wrapper .sidebar:hover  .sidebar-header {
+        position: relative;
+        display: block;
+        width: 100%;
+    }
+
+    .wrapper .sidebar .sidebar-header img {
+        width: 75%;
+        height: auto;
+    }
+    
+    .navbar-brand {
+        display: none;
+    }
+    
+    .navbar {
+        padding: 15px 0;
+        flex-direction: column;
+    }
+    
+    .wrapper .sidebar:hover .navbar-expand-md .navbar-nav .nav-link {
+        padding: 5px 30px 7px 30px;
+    }
+    
+    .wrapper .sidebar::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    .wrapper .sidebar::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+    }
+
+    .wrapper .sidebar::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid #708090;
+        border-radius: 7px
+    }
+    
+    .navbar-brand {
+        display: none;
+    }
+    
+    .sidebar .sidebar-footer {
+        width: 300px;
+        position:relative;
+        bottom: 0;
+        padding: 10px;
+        font-size: 0;
+        text-align:center;
+        background: #222222;
+    }
+    
+    .sidebar .sidebar-footer a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        padding: 5px 0;
+        margin: 0 15px 0 0;
+        text-align: center;
+        font-size: 20px;
+        color: #000000;
+        background: rgb(92, 112, 245);
+    }
+    
+    .sidebar .sidebar-footer a:last-child {
+        margin-right: 0;
+    }
+    
+    .sidebar .sidebar-footer a:hover {
+        color: rgb(92, 112, 245);
+        background: #ffffff;
+    }
+    
+    .sidebar:hover .sidebar-footer {
+        display: block;
+    }
+}
+
+@media (min-width: 992px) {
+    .wrapper .sidebar {
+        margin: 0;
+    }
+
+    .wrapper .content {
+        width: calc(100% - 300px);
+        margin-left: 300px;
+    }
+
+    .sidebar .sidebar-header {
+        position: relative;
+        display: block;
+        width: 100%;
+    }
+    
+    .navbar-expand-md .navbar-nav .nav-link {
+        padding: 5px 30px 7px 30px;
+    }
+    
+    .sidebar .sidebar-footer {
+        display:block;
+    }
+}
+
+@media (max-width: 1140px) {
+    .wrapper .content {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .wrapper .content {
+        padding: 15px;
+    }
+}
+
+
+/**********************************/
+/******** Back to Top CSS *********/
+/**********************************/
+.back-to-top {
+    position: fixed;
+    display: none;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 1;
+    font-size: 30px;
+    right: 30px;
+    bottom: 30px;
+    transition: background 0.5s;
+    z-index: 11;
+}
+
+.back-to-top i {
+    color: #222222;
+}
+
+.back-to-top i:hover {
+    color: rgb(92, 174, 245);
+}
+
+.back-to-top {
+    -webkit-animation: action 1s infinite  alternate;
+    animation: action 1s infinite  alternate;
+}
+
+@-webkit-keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-15px); }
+}
+
+@keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-15px); }
+}
+
+
+/**********************************/
+/*********** Header CSS ***********/
+/**********************************/
+.header {
+    position: relative;
+    background: #ffffff;
+}
+
+marquee{
+    font-size: 20px;
+}
+
+
+
+.header p {
+    color: rgb(92, 174, 245);
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    color: #222222;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.header h2 {
+    display: inline-block;
+    margin: 0;
+    height: 25px;
+    font-size: 25px;
+}
+
+.header .typed-text {
+    display: none;
+}
+
+.header .typed-cursor {
+    font-size: 25px;
+    font-weight: 300;
+    color: #222222;
+}
+
+.large-btn .content-inner {
+    font-size: 0;
+    border-bottom: 30px solid rgb(255, 255, 255,0.5);
+}
+
+.large-btn .btn {
+    position: relative;
+    width: 50%;
+    padding: 15px 0;
+    color: rgb(92, 112, 245);
+    font-size: 20px;
+    background: #222222;
+    border-radius: 0;
+}
+
+.large-btn .btn:last-child {
+    color: #222222;
+    background: rgb(92, 112, 245);
+}
+
+.large-btn .btn i {
+    margin-right: 8px;
+}
+
+.large-btn .btn::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: all .3s;
+}
+
+.large-btn .btn:hover::after {
+    width: 100%;
+    background: rgba(255, 255, 255, .1);
+}
+
+
+/**********************************/
+/******* Content Header CSS *******/
+/**********************************/
+.content-header {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+}
+
+.content-header h2 {
+    color: #312d2d;
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.content-header::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background: rgb(92, 174, 245);
+}
+
+
+/**********************************/
+/*********** About CSS ************/
+/**********************************/
+.about {
+    color: #000000;
+    position: relative;
+    padding: 60px 30px;
+    background: rgb(255, 255, 255,0.5);
+    border-bottom: 30px solid rgb(255, 255, 255);
+}
+
+
+.about img {
+    width: 100%;
+    height: auto;
+}
+
+@media(max-width: 767.98px) {
+    .about img {
+        margin-bottom: 15px;
+    }
+}
+
+
+
+.about .skills {
+    padding-top: 15px;
+}
+
+.about .skill-name {
+    margin-top: 15px;
+}
+
+.about .skill-name p {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.about .skill-name p:last-child {
+    float: right;
+}
+
+.about .progress {
+    height: 5px;
+    border: 1px solid hsl(237, 85%, 64%);
+    border-radius: 0;
+    background: #ffffff;
+}
+
+.about .progress .progress-bar {
+    width: 1px;
+    background: hsl(237, 85%, 56%);
+    border-radius: 0;
+    transition: 1s;
+}
+
+
+/**********************************/
+/********* Education CSS **********/
+/**********************************/
+.education {
+    color: #000000;
+    position: relative;
+    padding: 60px 30px;
+    background: rgb(255, 255, 255,0.5);
+    border-bottom: 30px solid rgb(255, 255, 255);
+}
+
+.education .edu-col {
+    position: relative;
+    width: 100%;
+    padding: 20px 0 20px 20px;
+    border-left: 1px solid rgb(92, 112, 245);
+    border-bottom: 1px solid rgb(92, 112, 245);
+}
+
+.education .col-md-6:first-child .edu-col {
+    padding-top: 0;
+}
+
+.education .col-md-6:last-child .edu-col {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .education .col-md-6:nth-child(-n+2) .edu-col {
+        padding-top: 0;
+    }
+
+    .education .col-md-6:last-child .edu-col,
+    .education .col-md-6:nth-last-child(2) .edu-col {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+.education .edu-col span {
+    position: relative;
+    display: block;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.education .edu-col span::before {
+    position: absolute;
+    content: "";
+    width: 11px;
+    height: 11px;
+    background: rgb(92, 112, 245);
+    top: 5px;
+    left: -26px;
+    border-radius: 5px;
+}
+
+.education .edu-col span i {
+    color: rgb(92, 112, 245);
+}
+
+.education .edu-col h3 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.education .edu-col p {
+    margin: 0;
+}
+
+
+/**********************************/
+/********* Training CSS *********/
+/**********************************/
+.training {
+    color: #000000;
+    position: relative;
+    padding: 60px 30px;
+    background: rgb(255, 255, 255,0.5);
+    border-bottom: 30px solid rgb(255, 255, 255);
+}
+
+.training .pro-col {
+    position: relative;
+    width: 100%;
+    padding: 20px 0 20px 20px;
+    border-left: 1px solid rgb(92, 112, 245);
+    border-bottom: 1px solid rgb(92, 112, 245);
+}
+
+.training .col-md-6:first-child .pro-col {
+    padding-top: 0;
+}
+
+.training .col-md-6:last-child .pro-col {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .training .col-md-6:nth-child(-n+2) .pro-col {
+        padding-top: 0;
+    }
+
+    .training .col-md-6:last-child .pro-col,
+    .training .col-md-6:nth-last-child(2) .pro-col {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+
+
+.training .pro-col ::after {
+    position: absolute;
+    content: "";
+    width: 11px;
+    height: 11px;
+    background: #FF6F61;
+    top: 5px;
+    left: -26px;
+    border-radius: 5px;
+}
+
+
+
+.training .pro-col h3 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.training .pro-col li {
+    margin: 0;
+}
+/**********************************/
+/*********** achievements CSS **********/
+/**********************************/
+/**********************************/
+.achievements {
+    color: #000000;
+    position: relative;
+    padding: 60px 30px 30px 30px;
+    background: rgb(255, 255, 255,0.5);
+    border-bottom: 30px solid rgb(255, 255, 255);
+    
+}
+.achievements .ach-col {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+
+}
+.achievements .ach-col h3 {
+
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+
+/**********************************/
+/*********** activitu CSS **********/
+/**********************************/
+.activity {
+    color: #000000;
+    position: relative;
+    padding: 60px 30px 30px 30px;
+    background: rgb(255, 255, 255,0.5);
+    border-bottom: 30px solid rgb(255, 255, 255);
+}
+
+.activity .act-col {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+
+.activity .act-col h3 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+
+
+
+
+/**********************************/
+/*********** Contact CSS ***********/
+/**********************************/
+.contact {
+    color: #080808;
+    position: relative;
+    padding: 60px 30px 30px 30px;
+    background: rgb(255, 255, 255,0.5);
+}
+
+.contact .contact-info {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.contact .contact-info p {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.contact .contact-info p i {
+    width: 25px;
+    color: rgb(92, 112, 245);
+}
+
+
+.contact .contact-info p a {
+    color: #080808;
+}
+
+.contact .contact-info p a:hover {
+    color: rgb(92, 112, 245);
+    text-decoration: none;
+}
+
+.contact .social {
+    font-size: 0;
+}
+
+.contact .social a {
+    width: 35px;
+    height: 35px;
+    padding: 5px 0;
+    color: #222222;
+    background: rgb(92, 112, 245);
+    border-radius: 0;
+    margin-top: 15px;
+    margin-right: 15px;
+    transition: all .3s;
+}
+
+.contact .social a:last-child {
+    margin-right: 0;
+}
+
+.contact .social a:hover {
+    color: rgb(92, 112, 245);
+    background: #222222;
+}
+
